@@ -20,11 +20,12 @@ if (isset($_POST['submit'])) {
     $query = "SELECT user_id, user_password FROM users WHERE user_login='" . ($_POST['login']) . "' LIMIT 1";
     run_query($id_connect, $query);
     $data = run_query($id_connect, $query);
+    $user_password = "";
+    $user_id = -1;
     foreach ($data as $l) {
         $user_password = $l["user_password"];
         $user_id = $l["user_id"];
     }
-    echo '---' . $user_password . '---';
     # Сравниваем пароли
     if ($user_password === md5(md5($_POST['password']))) {
         # Генерируем случайное число и шифруем его
@@ -53,9 +54,16 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<form method="POST">
-    Username <input name="login" type="text"><br>
-    Password <input name="password" type="password"><br>
-    Don't link to IP(not safe) <input type="checkbox" name="not_attach_ip"><br>
-    <input name="submit" type="submit" value="Login">
+<form method="POST"> 
+    <table>
+        <tr><td>Username</td> <td><input name = "login" type = "text"></td>
+        </tr>
+        <tr><td>Password </td><td><input name="password" type="password"></td>
+        </tr>
+        <tr><td>Don't link to IP(not safe) </td><td><input type="checkbox" name="not_attach_ip"></td>
+        </tr>
+        <tr><td><input name="submit" type="submit" value="Login"> </td><td><a href="register.php">Register</a> </td></tr>
+    </table>
+</form>
+
 </form>
