@@ -25,9 +25,15 @@ if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
     } else {
 
         print "Hello, " . $user_login . ". All's working!";
+        print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form>';
     }
 } else {
 
     print "Enable cookie in your browser";
+}
+
+if (isset($_POST['submit'])) {
+    // $_COOKIE.reset(false);
+             
 }
 ?>

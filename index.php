@@ -12,12 +12,11 @@
             <?php
             include './template/menu.php';
             ?> 
-
-            <div class="loginform">
-                <?php
-                include './login.php';
-                ?> 
-            </div>
+            
+            <?php
+            include './check.php';
+            ?> 
+          
 
             <div class="content"> 
                 <article>
