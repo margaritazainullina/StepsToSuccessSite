@@ -4,36 +4,73 @@
 include 'connection.php';
 $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
 
-if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
-    $query = "SELECT *,INET_NTOA(user_ip) FROM users WHERE user_id = '" . intval($_COOKIE['id']) . "' LIMIT 1";
-    $userdata = run_query($id_connect, $query);
-    foreach ($userdata as $l) {
-        $user_hash = $l["user_hash"]; 
-        $user_login = $l["user_login"];
-        $user_id = $l["user_id"];
-        $user_ip = $l["user_ip"];
+# Функция для генерации случайной строки
+
+function generateCode($length = 6) {
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
+    $code = "";
+    $clen = strlen($chars) - 1;
+    while (strlen($code) < $length) {
+        $code .= $chars[mt_rand(0, $clen)];
     }
+    return $code;
+}
 
-    if ((($user_hash !== $_COOKIE['hash']) or ( $user_id !== $_COOKIE['id'])
-            or ( $user_ip !== $_SERVER['REMOTE_ADDR']) and ( $user_ip !== "0"))) {
 
-        setcookie("id", "", time() - 3600 * 24 * 30 * 12, "/");
+if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
+    $query = "SELECT user_id, user_password, user_ip FROM users WHERE user_login='" . $_POST['login'] . "' LIMIT 1";
+    $userdata = run_query($id_connect, $query);
 
-        setcookie("hash", "", time() - 3600 * 24 * 30 * 12, "/");
-
-        print "Something's wrong";
+    if ($_POST['login'] == '')
+        include './login.php';
+    else
+    if ($userdata == null) {
+        print "Пользователя с таким логином не существует";
+        include './login.php';
     } else {
+        foreach ($userdata as $l) {
+            $user_password = $l["user_password"];
+            //$user_hash = generateCode($user_password);
+            $user_id = $l["user_id"];
+            $user_ip = $l["user_ip"];
 
-        print "Hello, " . $user_login . ". All's working!";
-        print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form>';
+            # Сравниваем пароли
+            if ($user_password === md5(md5($_POST['password']))) {
+                # Генерируем случайное число и шифруем его
+                $hash = md5(generateCode(10));
+
+                if (!@$_POST['not_attach_ip']) {
+                    # Если пользователя выбрал привязку к IP
+                    # Переводим IP в строку
+                    $insip = ", user_ip=INET_ATON('" . $_SERVER['REMOTE_ADDR'] . "')";
+                }
+
+                # Записываем в БД новый хеш авторизации и IP
+                $query = "UPDATE users SET user_hash='" . $hash . "' " . $insip . " WHERE user_id='" . $user_id . "'";
+                $userdata = run_query($id_connect, $query);
+
+                # Ставим куки
+                setcookie("id", $user_id, time() + 60 * 60 * 24 * 30);
+                setcookie("hash", $hash, time() + 60 * 60 * 24 * 30);
+
+                print "Hello, " . $_POST['login'] . "!";
+                print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form>';
+            } else {
+                print "Вы ввели неправильный логин/пароль";
+                include './login.php';
+            }
+        }
     }
 } else {
-
-    print "Enable cookie in your browser";
+    include './login.php';
 }
 
-if (isset($_POST['submit'])) {
-    // $_COOKIE.reset(false);
-             
+if (isset($_POST['submit']) && $_POST['submit'] == "Exit") {
+    session_write_close();
+    print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form>';
+    header("Location: index.php");
+    return;
 }
+        //print '<span class="sexy_line"></span>';
+
 ?>
