@@ -4,6 +4,7 @@ $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
 
 
 ?>
+ <div class="authorisation"> 
 <form method="POST" class="loginform"> 
     <table>
         <tr><td>Username</td> <td><input name = "login" type = "text"></td>
@@ -15,4 +16,4 @@ $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
         <tr><td><input name="submit" type="submit" value="Login"> </td><td><a href="register.php">Register</a> </td></tr>
     </table>
 </form>
-
+</div>

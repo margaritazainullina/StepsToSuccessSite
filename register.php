@@ -15,17 +15,17 @@ if (isset($_POST['submit'])) {
         $err[] = "Password length should be between 3 and 30";
     }
 # проверяем, не сущестует ли пользователя с таким именем 
-    $query = "SELECT COUNT(user_id) FROM users WHERE user_login='" . mysql_real_escape_string($_POST['login']) . "'";
-    run_query($id_connect, $query);
-    if (mysql_result($query, 0) > 0) {
+    $query = "SELECT COUNT(user_id) FROM users WHERE user_login='" . $_POST['login'] . "'";
+    $userdata = run_query($id_connect, $query);
+    foreach ($userdata as $l)
         $err[] = "There is already the same login";
-    }
+
 # Если нет ошибок, то добавляем в БД нового пользователя 
     if (count($err) == 0) {
         $login = $_POST['login'];
 # Убираем лишние пробелы и делаем двойное шифрование 
         $password = md5(md5(trim($_POST['password'])));
-        $query = "INSERT INTO users SET user_login='" . $login . "', email='" . $_POST['email'] . "', user_password='" . $password . "'";
+        $query = "INSERT INTO users SET user_login='" . $login . "', email='" . $_POST['email'] . "', user_password='" . $password . "'" . "', role_id=2";
         run_query($id_connect, $query);
         header("Location: index.php");
         exit();

@@ -16,7 +16,6 @@ function generateCode($length = 6) {
     return $code;
 }
 
-
 if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
     $query = "SELECT user_id, user_password, user_ip FROM users WHERE user_login='" . $_POST['login'] . "' LIMIT 1";
     $userdata = run_query($id_connect, $query);
@@ -52,9 +51,9 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
                 # Ставим куки
                 setcookie("id", $user_id, time() + 60 * 60 * 24 * 30);
                 setcookie("hash", $hash, time() + 60 * 60 * 24 * 30);
-
-                print "Hello, " . $_POST['login'] . "!";
-                print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form>';
+                print'<div class="authorisation">';
+                print "Hello, " . $_POST['login'] . '!';
+                print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form></div>';
             } else {
                 print "Вы ввели неправильный логин/пароль";
                 include './login.php';
@@ -67,10 +66,9 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
 
 if (isset($_POST['submit']) && $_POST['submit'] == "Exit") {
     session_write_close();
-    print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form>';
+    print '<div class="authorisation"><form method="POST"> <input name="submit" type="submit" value="Exit"> </form></div>';
     header("Location: index.php");
     return;
 }
-        //print '<span class="sexy_line"></span>';
-
+//print '<span class="sexy_line"></span>';
 ?>

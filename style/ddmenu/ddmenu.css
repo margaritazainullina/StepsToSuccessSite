@@ -163,7 +163,7 @@ box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
 #ddmenu .dropdown a:hover, #ddmenu .dropdown a:focus
 {
     text-decoration:underline;
-    color:#09F;
+    color: #8FC63B;
 }
 
 /* blocks within the sub-menu
