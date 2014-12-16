@@ -23,7 +23,6 @@
                         <option value="" selected="selected"></option>
                         <option value="news">Новость</option>
                         <option value="photo">Фото в галерею</option>
-                        <option value="video">Видео</option>   
                     </select>
                     <INPUT TYPE="submit" name="submit" />
                 </form>
@@ -46,9 +45,6 @@
                     break;
                 case "photo":
                     header("Location: addPhoto.php");
-                    break;
-                case "video":
-                    header("Location: addVideo.php");
                     break;
             }
         }

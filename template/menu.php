@@ -24,15 +24,15 @@ and open the template in the editor.
                     <div class="dropdown">
                         <div class="dd-inner">
                             <div class="column">
-                                <a href="#">Описание</a>
-                                <a href="#">Путеводитель</a>
+                                <a href="./about.php">Описание</a>
+                                <a href="./guide.php">Путеводитель</a>
                             </div>  
                         </div>
                     </div>
                 </li>
-                <li class="no-sub"><a class="top-heading" href="http://www.google.com">Галерея</a></li>    
-                <li class="no-sub"><a class="top-heading" href="http://www.google.com">Видео</a></li>  
-                <li class="no-sub"><a class="top-heading" href="http://www.google.com">Контакты</a></li>             
+                <li class="no-sub"><a class="top-heading" href="./gallery.php">Галерея</a></li>    
+                <li class="no-sub"><a class="top-heading" href="./video.php">Видео</a></li>  
+                <li class="no-sub"><a class="top-heading" href="./contacts.php">Контакты</a></li>             
             </ul>
         </nav>
     </body>

@@ -16,7 +16,7 @@
             ?>             
 
             <div class="content">                 
-                <form action="admin.php" method="post" enctype="multipart/form-data">
+                <form action="addNews.php.php" method="post" enctype="multipart/form-data">
                     <table> 
                         <tr><td>Заголовок статьи (rus):</td> <td><textarea type="text" name="header_rus" cols="40" rows="2"></textarea></td>
                             <td>Заголовок статьи (fr): </td> <td><textarea type="text" name="header_fr" cols="40" rows="2"></textarea></td></tr>
@@ -40,7 +40,7 @@
 
         if (isset($_POST['publish_news'])) {
             //image upload
-            $uploads_dir = './photo/';
+            $uploads_dir = './media/articles_img';
             $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
             $name = $_FILES["fileToUpload"]["name"];
             move_uploaded_file($tmp_name, "$uploads_dir/$name");
@@ -63,10 +63,6 @@
             }
             $articleRus = $articleRus . '</p>';
             $articleFr = $articleFr . '</p>';
-            echo $articleRus;
-            echo'<hr>';
-            echo $articleFr;
-            echo'<hr>';
             $query = "INSERT INTO news VALUES(" . $id . ", '', '" . $articleRus .
                     "','" . $articleFr . "','" . $date . "')";
             $userdata = run_query($id_connect, $query);
