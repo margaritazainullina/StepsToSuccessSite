@@ -4,20 +4,16 @@
     </head>
     <body> 
         <div class="wrapper">
-            <img src="style/header.png" style="
-                 width: 100%;
-                 ">
+            <img src="style/header.png" style="width: 100%;">
 
             <?php
             include './template/menu.php';
             ?> 
 
-          
                 <span class="line"></span>
                 <?php
                 include './check.php';
-                ?> 
-            
+                ?>             
 
             <div class="content"> 
                 <span class="line"></span>

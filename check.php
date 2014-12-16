@@ -5,7 +5,6 @@ include 'connection.php';
 $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
 
 # Функция для генерации случайной строки
-
 function generateCode($length = 6) {
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
     $code = "";
@@ -17,7 +16,7 @@ function generateCode($length = 6) {
 }
 
 if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
-    $query = "SELECT user_id, user_password, user_ip FROM users WHERE user_login='" . $_POST['login'] . "' LIMIT 1";
+    $query = "SELECT user_id, user_password, user_ip, role_id FROM users WHERE user_login='" . $_POST['login'] . "' LIMIT 1";
     $userdata = run_query($id_connect, $query);
 
     if ($_POST['login'] == '')
@@ -32,6 +31,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
             //$user_hash = generateCode($user_password);
             $user_id = $l["user_id"];
             $user_ip = $l["user_ip"];
+            $user_role = $l["role_id"];
 
             # Сравниваем пароли
             if ($user_password === md5(md5($_POST['password']))) {
@@ -53,7 +53,8 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
                 setcookie("hash", $hash, time() + 60 * 60 * 24 * 30);
                 print'<div class="authorisation">';
                 print "Hello, " . $_POST['login'] . '!';
-                print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form></div>';
+               if($user_role==1) print '<a href="admin.php">Admin</a>';
+                   print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form></div>';
             } else {
                 print "Вы ввели неправильный логин/пароль";
                 include './login.php';
