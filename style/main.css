@@ -76,6 +76,13 @@ article .datetime{
     font-size: small;
     margin-bottom: 10px;
 }
+article img{
+    max-width: 400px;
+    max-height: 400px;
+    float: right; /* Обтекание картинки по левому краю */
+    padding-left: 10px; /* Отступ слева */
+    padding-bottom: 10px;
+}
 .line{ 
     display:block;
     border:none;
@@ -84,6 +91,10 @@ article .datetime{
     background:black;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#000), to(#fff));
 }
+#paging{
+    text-align: center;
+color:  #4B7002;
+}
 a{
     color:  #4B7002;
 }
@@ -91,10 +102,10 @@ a:hover{
     color:  #669900;
 }
 a.contact{
-     color: #000000; text-decoration: none
+    color: #000000; text-decoration: none
 }
 input:focus{
     outline-color: green;
-border: 1px solid rgba(3, 195, 3, 0.5);
-//box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.28)
+    border: 1px solid rgba(3, 195, 3, 0.5);
+    //box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.28)
 }

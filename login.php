@@ -1,8 +1,6 @@
 <?php
 # Connect to the database 
 $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
-
-
 ?>
  <div class="authorisation"> 
 <form method="POST" class="loginform"> 

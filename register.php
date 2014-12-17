@@ -18,7 +18,9 @@ if (isset($_POST['submit'])) {
     $query = "SELECT COUNT(user_id) FROM users WHERE user_login='" . $_POST['login'] . "'";
     $userdata = run_query($id_connect, $query);
     foreach ($userdata as $l)
-        $err[] = "There is already the same login";
+        if ($l['COUNT(user_id)'] > 0) {
+            $err[] = "There is already the same login";
+        }
 
 # Если нет ошибок, то добавляем в БД нового пользователя 
     if (count($err) == 0) {
