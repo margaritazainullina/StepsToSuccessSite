@@ -7,8 +7,9 @@ if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || 
 ?>
 <html>
     <head>
-         <title> Управление контентом </title>
+        <title> Управление контентом </title>
         <link rel="stylesheet" href="style/main.css">
+        <meta charset="UTF-8">
     </head>
     <body> 
         <div class="wrapper">
@@ -21,7 +22,7 @@ if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || 
             <span class="line"></span>
             <?php
             include './check.php';
-            
+
             $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
 
             //publishing

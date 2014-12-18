@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
         header("Location: index.php");
         exit();
     } else {
-        print "<b>".$lang['REG_ERRORS']."</b><br>";
+        print "<b>" . $lang['REG_ERRORS'] . "</b><br>";
         foreach ($err AS $error) {
             print $error . "<br>";
         }
@@ -41,34 +41,48 @@ if (isset($_POST['submit'])) {
 ?>  
 <html>
     <head>
-        <title> Регистрация </title>
+        <title>Регистрация</title>
         <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/menu.css">
+        <meta charset="UTF-8">
     </head>
     <body> 
         <div class="wrapper">
             <img src="style/header.png" style="width: 100%;">
             <?php
             include './template/menu.php';
-            include './check.php';
+            print '<span class="line"></span>';
             ?> 
-
-            <span class="line"></span>    
+  
             <div class="content"> 
-                <form method="POST"> 
-                    <table>
-                        <tr><td><?php print $langArray['LOGIN_USERNAME'] ?></td><td> <input name="login" type="text"></td>
-                        </tr>
-                        <tr><td><?php print $langArray['LOGIN_EMAIL'] ?></td><td> <input name="email" type="email"></td>
-                        </tr>
-                        <tr><td><?php print $langArray['LOGIN_PASSWORD'] ?></td><td> <input name="password" type="password"></td>
-                        </tr>
-                        <tr><td colspan="2"><input name="submit" type="submit" value="Register"> </td></tr>
-                    </table>
-                </form>
+                <div class="registration">
+                    <form method="POST"> 
+                        <table>
+                            <tr><td><?php print $langArray['LOGIN_USERNAME'] ?></td><td> <input name="login" type="text"></td>
+                            </tr>
+                            <tr><td><?php print $langArray['LOGIN_EMAIL'] ?></td><td> <input name="email" type="email"></td>
+                            </tr>
+                            <tr><td><?php print $langArray['LOGIN_PASSWORD'] ?></td><td> <input name="password" type="password"></td>
+                            </tr>
+                            <tr><td colspan="2"><input name="submit" type="submit" value="<?php print $langArray['LOGIN_REGISTER'] ?>"> </td></tr>
+                        </table>
+                    </form>
+                </div>
             </div>
+            <span class="line"></span>  
+        </div>
+        <footer>
+            <img src="style/logo_2.png" style="
+                 width: 150px;  
+                 float: left;
+                 margin: 0 50px; "><br>
+            <img src="style/logo_1.jpg" style="
+                 width: 150px;  
+                 float: right;
+                 margin:0 50px;"><br>
             <?php
             include './template/footer.php';
-            ?>   
-        </div> 
+            ?>
+        </footer>
     </body>
 </html>

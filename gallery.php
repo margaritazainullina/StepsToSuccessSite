@@ -1,26 +1,23 @@
 <html>
-    <head> 
-        <title> Галерея </title>
+    <head>
+        <title>Галерея</title>
         <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/menu.css">
+        <meta charset="UTF-8">
     </head>
     <body> 
         <div class="wrapper">
             <img src="style/header.png" style="width: 100%;">
             <?php
-            include './Language.php';
-            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); //Detecting Default Browser language
-            $language = New Language($lang);
-            $langArray = array();
-            $langArray = $language->userLanguage();
-
             include './template/menu.php';
+            print '<span class="line"></span>';
             include './check.php';
             ?> 
 
             <span class="line"></span>    
             <div class="content"> 
-                <span class="line"></span>
-                <?php
+                <article>
+               <?php
                 $query = 'SELECT * FROM gallery';
                 $userdata = run_query($id_connect, $query);
 
@@ -28,18 +25,32 @@
                     $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
                 } else
                     $lang = $_COOKIE['lang'];
-                // Display the results
+                $i = 0;
+                print '<table>';
                 foreach ($userdata as $row) {
-                    print '<article>
-                    <img src="' . $row['ref'] . '"/>
-                    <p>' . $row['desc_' . $lang] . '</p>
-                </article>';
+                    if($i%2==0) print '<tr>';
+                    print '
+                    <td><img src="' . $row['ref'] . '"/>
+                    <p style="text-align: center;">' . $row['desc_' . $lang] . '</p> </td>';
+                    if($i%2) print '</tr>';
+                    $i++;
                 }
-                ?> 
-            </div>
+                print '</table>';
+                ?> </article>
+            </div>    
+        </div>
+        <footer>
+            <img src="style/logo_2.png" style="
+                 width: 150px;  
+                 float: left;
+                 margin: 0 50px; "><br>
+            <img src="style/logo_1.jpg" style="
+                 width: 150px;  
+                 float: right;
+                 margin:0 50px;"><br>
             <?php
             include './template/footer.php';
-            ?>   
-        </div> 
+            ?>
+        </footer>
     </body>
 </html>

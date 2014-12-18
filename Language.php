@@ -20,7 +20,7 @@ class Language {
              */
             case "rus":
                 $lang['MENU_ABOUT'] = 'Об игре';
-                $lang['MENU_DESC'] = 'Описание';
+                $lang['MENU_NEWS'] = 'Новости';
                 $lang['MENU_GUIDE'] = 'Путеводитель';
                 $lang['MENU_GALLERY'] = 'Галерея';
                 $lang['MENU_VIDEO'] = 'Видео';
@@ -68,7 +68,7 @@ class Language {
 
             case "fr":
                 $lang['MENU_ABOUT'] = 'Informations sur le jeu';
-                $lang['MENU_DESC'] = 'Description';
+                $lang['MENU_NEWS'] = 'Nouvelles';
                 $lang['MENU_GUIDE'] = 'Guide';
                 $lang['MENU_GALLERY'] = 'Galerie';
                 $lang['MENU_VIDEO'] = 'Video';
@@ -117,7 +117,7 @@ class Language {
             default:
 
                 $lang['MENU_ABOUT'] = 'Informations sur le jeu';
-                $lang['MENU_DESC'] = 'Description';
+                $lang['MENU_NEWS'] = 'Nouvelles';
                 $lang['MENU_GUIDE'] = 'Guide';
                 $lang['MENU_GALLERY'] = 'Galerie';
                 $lang['MENU_VIDEO'] = 'Video';

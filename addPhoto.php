@@ -1,7 +1,8 @@
 <html>
     <head>
-         <title> Добавить фотографию </title>
+        <title> Добавить фотографию </title>
         <link rel="stylesheet" href="style/main.css">
+        <meta charset="UTF-8">
     </head>
     <body> 
         <div class="wrapper">

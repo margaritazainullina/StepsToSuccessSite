@@ -1,2 +1,2 @@
- 
-<footer>This is FOOTER!</footer>
+Steps to Success<br>
+2014

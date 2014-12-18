@@ -3,6 +3,7 @@
         <title>Steps to success</title>
         <link rel="stylesheet" href="style/main.css">
         <link rel="stylesheet" href="style/menu.css">
+        <meta charset="UTF-8">
     </head>
     <body> 
         <div class="wrapper">
@@ -22,7 +23,7 @@
                     $total = $id_connect->query(' SELECT COUNT(*) FROM news ')->fetchColumn();
 
                     // How many items to list per page
-                    $limit = 7;
+                    $limit = 4;
 
                     // How many pages will there be
                     $pages = ceil($total / $limit);
@@ -91,8 +92,18 @@
                 ?> 
             </div>   
         </div>
-        <?php
-        include './template/footer.php';
-        ?>
+        <footer>
+            <img src="style/logo_2.png" style="
+                 width: 150px;  
+                 float: left;
+                 margin: 0 50px; "><br>
+            <img src="style/logo_1.jpg" style="
+                 width: 150px;  
+                 float: right;
+                 margin:0 50px;"><br>
+            <?php
+            include './template/footer.php';
+            ?>
+        </footer>
     </body>
 </html>

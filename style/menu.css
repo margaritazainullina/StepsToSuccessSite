@@ -1,4 +1,7 @@
 /*menu style*/
+body{
+    //height: 50%;
+}
 nav {
     color: white;
     font-weight: bold;
@@ -11,8 +14,9 @@ nav {
 
     /* margin-left: 5%; */
 
-    margin-bottom: 3%;
-background: -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
+    /* margin-bottom: 3%; */
+
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(53, 53, 53)));
    /* background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1), rgb(60, 60, 60));
     background : -moz-linear-gradient(right, rgba(150, 141, 141, 0), rgb(255, 255, 255));
     background: -ms-linear-gradient(right, rgba(150, 141, 141, 0), rgb(255, 255, 255));
@@ -38,7 +42,7 @@ ul.menu li {
 }
 
 .lime{  
-    background: -webkit-gradient(radial, 50% 100%, 10, 50% 50%, 90, from(rgba(144, 192, 23, 1)), to(rgba(0,0,0, 1)) );
+    background: -webkit-gradient(radial, 50% 100%, 10, 50% 50%, 90, from(rgba(166, 216, 37, 1)), to(rgba(65, 65, 65, 1)) );
     background: -moz-radial-gradient(center 80px 45deg, circle cover, rgba(227, 247, 0, 1) 0%, rgba(0,0,0, 1) 100%);
     background: -ms-radial-gradient(40px, circle cover, rgba(227, 247, 0, 1), rgba(0,0,0, 1));
     background-image: -o-linear-gradient(left, rgba(227, 247, 0, 1), rgba(110, 120, 0, 1) 50%);
@@ -68,5 +72,9 @@ ul li a:hover {
 }
 
 .container{
-    /* margin-left: -20%; */
+    margin: 0 -15%;
+}
+footer{
+    text-align: center;
+    color: darkgray;
 }

@@ -1,7 +1,8 @@
 <html>
     <head>
-         <title> Добавить новость </title>
+        <title> Добавить новость </title>
         <link rel="stylesheet" href="style/main.css">
+        <meta charset="UTF-8">
     </head>
     <body> 
         <div class="wrapper">
@@ -26,7 +27,7 @@
                         <tr><td><?php print $langArray['SEL_IMG'] ?></td>
                             <td><input type="file" name="fileToUpload" id="fileToUpload"></td></tr>
                         <tr><td><input type="submit" name="publish_news" value="OK"></td></tr>
-                        
+
                     </table>
                 </form>
             </div>

@@ -3,8 +3,8 @@
 # Соединямся с БД
 require_once 'connection.php';
 $id_connect = new PDO("mysql: host=$host; dbname=$dbname; charset=utf8", $login, $password);
-# Функция для генерации случайной строки
 
+# Функция для генерации случайной строки
 function generateCode($length = 6) {
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
     $code = "";
@@ -25,9 +25,9 @@ if (isset($_POST['submit']) && $_POST['submit'] == $langArray['EXIT']) {
 }
 
 print'<div class="authorisation">';
-if (!$_SESSION['authorised']) {
+ if (!$_SESSION['authorised']) {
     if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
-        $query = "SELECT user_id, user_password, user_ip, role_id FROM users WHERE user_login='" . $_POST['login'] . "' LIMIT 1";
+        $query = "SELECT * FROM users WHERE user_login='" . $_POST['login'] . "' LIMIT 1";
         $userdata = run_query($id_connect, $query);
 
         if ($_POST['login'] == '')
@@ -39,21 +39,13 @@ if (!$_SESSION['authorised']) {
         } else {
             foreach ($userdata as $l) {
                 $user_password = $l["user_password"];
-//$user_hash = generateCode($user_password);
                 $user_id = $l["user_id"];
-                $user_ip = $l["user_ip"];
                 $user_role = $l["role_id"];
 
 # Сравниваем пароли
                 if ($user_password === md5(md5($_POST['password']))) {
 # Генерируем случайное число и шифруем его
                     $hash = md5(generateCode(10));
-
-                    if (!@$_POST['not_attach_ip']) {
-# Если пользователя выбрал привязку к IP
-# Переводим IP в строку
-                        $insip = ", user_ip=INET_ATON('" . $_SERVER['REMOTE_ADDR'] . "')";
-                    }
 
 # Записываем в БД новый хеш авторизации и IP
                     $query = "UPDATE users SET user_hash='" . $hash . "' " . $insip . " WHERE user_id='" . $user_id . "'";
@@ -71,7 +63,7 @@ if (!$_SESSION['authorised']) {
                     print $langArray['HELLO'] . $_SESSION['username'] . '!';
                     if ($user_role == 1)
                         print '<a href="admin.php">Admin</a>';
-                    print '<form method="POST"> <input name="submit" type="submit" value="' . $langArray['EXIT'] . '"> </form></div>';
+                    print '<form method="POST"> <input name="submit" type="submit" value="' . $langArray['EXIT'] . '"> </form>';
                 } else {
                     print $langArray['WRONG_PASSWORD'];
                     include './login.php';
@@ -85,8 +77,9 @@ if (!$_SESSION['authorised']) {
 }
 else {
     print $langArray['HELLO'] . $_SESSION['username'] . '!';
+    print '<form method="POST"> <input name="submit" type="submit" value="' . $langArray['EXIT'] . '"> </form>';
     if ($_SESSION['role'] == 1)
         print '<a href="admin.php">' . $langArray['ADMIN_PAGE'] . '</a>';
-    print '<form method="POST"> <input name="submit" type="submit" value="' . $langArray['EXIT'] . '"> </form></div>';
+    print '</div>';
 }
 ?>

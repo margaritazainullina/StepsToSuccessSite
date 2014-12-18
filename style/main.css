@@ -12,7 +12,7 @@ and open the template in the editor.
     font-family: Georgia; 
 }
 html{
-    background: black;
+    background: #444;
     background-image: url(bgn.png); 
     background-repeat: no-repeat;
     height: 100%;
@@ -32,11 +32,12 @@ footer {
     background-size: 100%; /* ????????????????????? ?????????????? */
     margin: 0 auto;
     width: 75%;
-    height: 100%
+    height: 50%
 }
 
 .content{
     background: white;
+    padding-bottom: 10%;
 }
 
 .loginform{
@@ -46,12 +47,13 @@ footer {
 }
 
 article{
-    height: 100%;
     border-radius: 25px 0;
     padding: 5%;
+    text-align: justify;
     border: 2px #669900 solid;
     margin: 2% 5%;
     box-shadow: 0 0 15px rgba(90, 121, 15, 1);
+    font-size: large;
 }
 article h2{
     color: #669900;
@@ -67,8 +69,6 @@ article .datetime{
 article img{
     max-width: 400px;
     max-height: 400px;
-    float: right; /* ???????????????? ??????????????? ???? ??????????? ??????? */
-    padding-left: 10px; /* ??????? ????????? */
     padding-bottom: 10px;
 }
 .line{ 
@@ -118,4 +118,21 @@ nav{
     height: 45px;
     padding: 0 10% 0 15%;
     background: #F6F6F9;
+    margin: 0 0 5px 0;
+}
+.authorisation{
+    margin: 10 2%;
+    text-align: right;
+}
+.registration{
+    margin: 5% 35%;
+    text-align:  center;
+}
+.video{
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+}
+p{
+    margin: 5;
 }
