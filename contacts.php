@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Contacts</title>
+        <title>Контакты</title>
         <link rel="stylesheet" href="style/main.css">
     </head>
     <body> 

@@ -1,18 +1,20 @@
 <html>
     <head>
+        <title>Steps to success</title>
         <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/menu.css">
     </head>
     <body> 
         <div class="wrapper">
             <img src="style/header.png" style="width: 100%;">
             <?php
             include './template/menu.php';
+            print '<span class="line"></span>';
             include './check.php';
             ?> 
 
             <span class="line"></span>    
             <div class="content"> 
-                <span class="line"></span>
                 <?php
                 try {
 
@@ -41,12 +43,12 @@
                     $end = min(($offset + $limit), $total);
 
                     // The "back" link
-                    $prevlink = ($page > 1) ? '<a href="?page=1" title="'.$langArray['MENU_FIRST'].
-                            '">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="'.$langArray['MENU_PREV'].''
+                    $prevlink = ($page > 1) ? '<a href="?page=1" title="' . $langArray['MENU_FIRST'] .
+                            '">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="' . $langArray['MENU_PREV'] . ''
                             . '">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
 
                     // The "forward" link
-                    $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="'.$langArray['MENU_NEXT'].'">&rsaquo;</a> <a href="?page=' . $pages . '" title="'.$langArray['MENU_LAST'].'">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
+                    $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="' . $langArray['MENU_NEXT'] . '">&rsaquo;</a> <a href="?page=' . $pages . '" title="' . $langArray['MENU_LAST'] . '">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
                     // Prepare the paged query
                     $stmt = $id_connect->prepare('SELECT * FROM news ORDER BY id desc LIMIT :limit OFFSET :offset');
 
@@ -63,10 +65,17 @@
 
                         // Display the results
                         foreach ($iterator as $row) {
-                            print '<article>
+                            if ($lang == 'rus') {
+                                print '<article>
                     <p>' . $row['text_rus'] . '</p>
                     <div class="datetime">' . $row['date'] . '</div>
-                </article>';
+                            </article>';
+                            } else {
+                                print '<article>
+                    <p>' . $row['text_fr'] . '</p>
+                    <div class="datetime">' . $row['date'] . '</div>
+                            </article>';
+                            }
                         }
                         // Display the paging information
                         echo '<span class="line"></span>';
@@ -80,10 +89,10 @@
                     echo '<p>', $e->getMessage(), '</p>';
                 }
                 ?> 
-            </div>
-            <?php
-            include './template/footer.php';
-            ?>   
-        </div> 
+            </div>   
+        </div>
+        <?php
+        include './template/footer.php';
+        ?>
     </body>
 </html>

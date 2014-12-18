@@ -1,5 +1,6 @@
 <html>
-    <head>
+    <head> 
+        <title> Галерея </title>
         <link rel="stylesheet" href="style/main.css">
     </head>
     <body> 

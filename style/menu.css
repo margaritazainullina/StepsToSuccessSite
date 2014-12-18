@@ -1,0 +1,72 @@
+/*menu style*/
+nav {
+    color: white;
+    font-weight: bold;
+    font-variant: small-caps;
+    /* width: 90%; */
+    /* height: 40px; */
+    background: #A0A0A0;
+    /* position: relative; */
+    /* margin-right: 5%; */
+
+    /* margin-left: 5%; */
+
+    margin-bottom: 3%;
+background: -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
+   /* background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1), rgb(60, 60, 60));
+    background : -moz-linear-gradient(right, rgba(150, 141, 141, 0), rgb(255, 255, 255));
+    background: -ms-linear-gradient(right, rgba(150, 141, 141, 0), rgb(255, 255, 255));
+    background-image: -o-linear-gradient(right, rgba(150, 141, 141, 0), rgb(255, 255, 255));	*/
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+ul.menu {
+    height: 40px;
+    float:left;
+}
+
+ul.menu li {
+    list-style: none;
+    float:left;
+    height: 45px;
+    text-align: center;    
+}
+
+.lime{  
+    background: -webkit-gradient(radial, 50% 100%, 10, 50% 50%, 90, from(rgba(144, 192, 23, 1)), to(rgba(0,0,0, 1)) );
+    background: -moz-radial-gradient(center 80px 45deg, circle cover, rgba(227, 247, 0, 1) 0%, rgba(0,0,0, 1) 100%);
+    background: -ms-radial-gradient(40px, circle cover, rgba(227, 247, 0, 1), rgba(0,0,0, 1));
+    background-image: -o-linear-gradient(left, rgba(227, 247, 0, 1), rgba(110, 120, 0, 1) 50%);
+}
+
+ul li a {
+    display: block;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 38px;
+    background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
+    background : -moz-linear-gradient(top, rgb(168,168,168), rgb(69,69,69));
+    background: -ms-radial-gradient(top, rgb(168,168,168), rgb(69,69,69));
+    background-image: -o-linear-gradient(top, rgb(168,168,168), rgb(69,69,69));
+    -webkit-transition-property: background;
+    -webkit-transition-duration: 700ms;
+    -moz-transition-property: background;
+    -moz-transition-duration: 700ms;
+    font-family: Georgia;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+ul li a:hover {
+    background: transparent none;color: white;
+}
+
+.container{
+    /* margin-left: -20%; */
+}

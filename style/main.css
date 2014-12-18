@@ -27,49 +27,36 @@ html{
 footer {
     background: url(../style/footer.png)no-repeat;
     -moz-background-size: 100%; /* Firefox 3.6+ */
-    -webkit-background-size: 100%; /* Safari 3.1+ ﾐｸ Chrome 4.0+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ ?? Chrome 4.0+ */
     -o-background-size: 100%; /* Opera 9.6+ */
-    background-size: 100%; /* ﾐ｡ﾐｾﾐｲﾑﾐｵﾐｼﾐｵﾐｽﾐｽﾑ巾ｵ ﾐｱﾑﾐｰﾑσｷﾐｵﾑﾑ */
+    background-size: 100%; /* ????????????????????? ?????????????? */
     margin: 0 auto;
-    width: 75%; 
-    position: relative;
-    top:120;
-    height: 100%;
+    width: 75%;
+    height: 100%
 }
 
 .content{
-    position: relative;
-    top: 120;
     background: white;
-    padding: 10;
 }
 
 .loginform{
-    //float: right;
     width: 100%;
-    //text-align: right;
     padding:0.5% 1%;
-}
-.loginform table{
-    float: right;
-}
-.authorisation{
-   // text-align: right;
-    //height: 33%;
+    margin-left: 60%;
 }
 
 article{
     height: 100%;
-    border-radius: 25 0;
-    padding: 0 5%;
+    border-radius: 25px 0;
+    padding: 5%;
     border: 2px #669900 solid;
-    margin: 2% 10;
+    margin: 2% 5%;
     box-shadow: 0 0 15px rgba(90, 121, 15, 1);
 }
 article h2{
     color: #669900;
-    /* padding: 2%4%; */
-    /* margin: 5; */
+    padding: 2%4%; 
+    margin: 5; 
 }
 article .datetime{
     color: grey;
@@ -80,8 +67,8 @@ article .datetime{
 article img{
     max-width: 400px;
     max-height: 400px;
-    float: right; /* ﾐ榧ｱﾑひｵﾐｺﾐｰﾐｽﾐｸﾐｵ ﾐｺﾐｰﾑﾑひｸﾐｽﾐｺﾐｸ ﾐｿﾐｾ ﾐｻﾐｵﾐｲﾐｾﾐｼﾑ ﾐｺﾑﾐｰﾑ */
-    padding-left: 10px; /* ﾐ樮び�びσｿ ﾑ�ｻﾐｵﾐｲﾐｰ */
+    float: right; /* ???????????????? ??????????????? ???? ??????????? ??????? */
+    padding-left: 10px; /* ??????? ????????? */
     padding-bottom: 10px;
 }
 .line{ 

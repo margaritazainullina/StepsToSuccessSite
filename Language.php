@@ -19,12 +19,12 @@ class Language {
               ------------------
              */
             case "rus":
-                $lang['MENU_ABOUT'] = 'ОБ ИГРЕ';
-                $lang['MENU_DESC'] = 'ОПИСАНИЕ';
-                $lang['MENU_GUIDE'] = 'ПУТЕВОДИТЕЛЬ';
-                $lang['MENU_GALLERY'] = 'ГАЛЕРЕЯ';
-                $lang['MENU_VIDEO'] = 'ВИДЕО';
-                $lang['MENU_CONTACTS'] = 'КОНТАКТЫ';
+                $lang['MENU_ABOUT'] = 'Об игре';
+                $lang['MENU_DESC'] = 'Описание';
+                $lang['MENU_GUIDE'] = 'Путеводитель';
+                $lang['MENU_GALLERY'] = 'Галерея';
+                $lang['MENU_VIDEO'] = 'Видео';
+                $lang['MENU_CONTACTS'] = 'Контакты';
                 $lang['LOGIN_USERNAME'] = 'Логин';
                 $lang['LOGIN_PASSWORD'] = 'Пароль';
                 $lang['LOGIN_REGISTER'] = 'Регистрация';

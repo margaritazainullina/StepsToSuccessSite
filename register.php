@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
 ?>  
 <html>
     <head>
+        <title> Регистрация </title>
         <link rel="stylesheet" href="style/main.css">
     </head>
     <body> 

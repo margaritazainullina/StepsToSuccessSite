@@ -1,5 +1,6 @@
 <html>
     <head>
+         <title> Добавить фотографию </title>
         <link rel="stylesheet" href="style/main.css">
     </head>
     <body> 

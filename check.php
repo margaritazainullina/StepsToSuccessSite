@@ -1,7 +1,6 @@
 <?php
 
 # Соединямся с БД
-
 require_once 'connection.php';
 $id_connect = new PDO("mysql: host=$host; dbname=$dbname; charset=utf8", $login, $password);
 # Функция для генерации случайной строки
@@ -20,7 +19,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if (isset($_POST['submit']) && $_POST['submit'] == "Exit") {
+if (isset($_POST['submit']) && $_POST['submit'] == $langArray['EXIT']) {
     $_SESSION['authorised'] = false;
     session_write_close();
 }

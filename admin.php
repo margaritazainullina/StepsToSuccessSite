@@ -1,5 +1,4 @@
 <?php
-//$referrer = $_SERVER['HTTP_REFERER'];
 session_start();
 if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || ($_SESSION['role'] == 1))) {
     header('HTTP/1.1 403 Forbidden');
@@ -8,6 +7,7 @@ if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || 
 ?>
 <html>
     <head>
+         <title> Управление контентом </title>
         <link rel="stylesheet" href="style/main.css">
     </head>
     <body> 
