@@ -16,32 +16,29 @@
 
             <span class="line"></span>    
             <div class="content"> 
-                 <?php
+                <?php
                 $query = 'SELECT * FROM news where name ="about"';
                 $userdata = run_query($id_connect, $query);
 
-                if (!isset($_COOKIE['lang'])) {
-                    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-                } else
-                    $lang = $_COOKIE['lang'];
+                $stmt = $id_connect->prepare(' SELECT * FROM news where name ="about" ');
+                $stmt->execute();
+                $iterator = new IteratorIterator($stmt);
+
                 // Display the results
-                foreach ($userdata as $row) {
-                    $t = 'text_' . $lang;
-                    print '<article>' . $row[$t] .
-                            '</article>';
+                foreach ($iterator as $row) {
+                    if ($lang == 'rus') {
+                        print '<article>' . $row['text_rus'] . '</article>';
+                    } else {
+                        print '<article>' . $row['text_fr'] . '</article>';
+                    }
                 }
                 ?> 
+
             </div>    
         </div>
         <footer>
-            <img src="style/logo_2.png" style="
-                 width: 150px;  
-                 float: left;
-                 margin: 0 50px; "><br>
-            <img src="style/logo_1.jpg" style="
-                 width: 150px;  
-                 float: right;
-                 margin:0 50px;"><br>
+           <img src="style/logo_2.png" class="logo_2"><br>
+            <img src="style/logo_1.jpg"  class="logo_1"><br>
             <?php
             include './template/footer.php';
             ?>

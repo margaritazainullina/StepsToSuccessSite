@@ -20,7 +20,7 @@ class Language {
              */
             case "rus":
                 $lang['MENU_ABOUT'] = 'Об игре';
-                $lang['MENU_NEWS'] = 'Новости';
+                $lang['MENU_NEWS'] = 'Главная';
                 $lang['MENU_GUIDE'] = 'Путеводитель';
                 $lang['MENU_GALLERY'] = 'Галерея';
                 $lang['MENU_VIDEO'] = 'Видео';
@@ -56,6 +56,7 @@ class Language {
                 $lang['ADD'] = "Добавить";
                 $lang['NEWS'] = "Новость";
                 $lang['PHOTO'] = "Фото в галерею";
+                $lang['NEWS_ADDED'] = "Новость добавлена";
 
                 return $lang;
                 break;
@@ -68,7 +69,7 @@ class Language {
 
             case "fr":
                 $lang['MENU_ABOUT'] = 'Informations sur le jeu';
-                $lang['MENU_NEWS'] = 'Nouvelles';
+                $lang['MENU_NEWS'] = 'Home';
                 $lang['MENU_GUIDE'] = 'Guide';
                 $lang['MENU_GALLERY'] = 'Galerie';
                 $lang['MENU_VIDEO'] = 'Video';
@@ -104,6 +105,7 @@ class Language {
                 $lang['ADD'] = "Ajouter";
                 $lang['NEWS'] = "Une nouvelle";
                 $lang['PHOTO'] = "Une photo à la galerie";
+                $lang['NEWS_ADDED'] = "La nouvelle est ajoutée";
 
 
                 return $lang;

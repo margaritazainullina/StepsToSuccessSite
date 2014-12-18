@@ -16,24 +16,17 @@
 
             <span class="line"></span>    
             <div class="content"> 
-                <article>
+                <article> 
                     <?php
-                    $query = 'SELECT * FROM news where name ="video"';
-                    $userdata = run_query($id_connect, $query);
+                    $stmt = $id_connect->prepare('SELECT * FROM news where name ="video"');
+                    $stmt->execute();
+                    $iterator = new IteratorIterator($stmt);
 
-                    if (!isset($_COOKIE['lang'])) {
-                        $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-                    } else
-                        $lang = $_COOKIE['lang'];
-                    if($lang=='rus'){
-                    // Display the results
-                    foreach ($userdata as $row) {
-                        print $row['text_rus'];
-                    }}
-                    else{
-                      foreach ($userdata as $row) {
-                        print $row['text_rus'];
-                    }  
+                    foreach ($iterator as $row) {
+                        if ($lang == 'rus') {
+                            print $row['text_rus'];
+                        } else
+                            print $row['text_fr'];
                     }
                     ?>
                     <div class="video">
@@ -57,14 +50,8 @@
             </div>    
         </div>
         <footer>
-            <img src="style/logo_2.png" style="
-                 width: 150px;  
-                 float: left;
-                 margin: 0 50px; "><br>
-            <img src="style/logo_1.jpg" style="
-                 width: 150px;  
-                 float: right;
-                 margin:0 50px;"><br>
+            <img src="style/logo_2.png" class="logo_2"><br>
+            <img src="style/logo_1.jpg"  class="logo_1"><br>
             <?php
             include './template/footer.php';
             ?>

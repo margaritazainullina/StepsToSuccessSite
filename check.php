@@ -48,7 +48,7 @@ print'<div class="authorisation">';
                     $hash = md5(generateCode(10));
 
 # Записываем в БД новый хеш авторизации и IP
-                    $query = "UPDATE users SET user_hash='" . $hash . "' " . $insip . " WHERE user_id='" . $user_id . "'";
+                    $query = "UPDATE users SET user_hash='" . $hash . "' " . " WHERE user_id='" . $user_id . "'";
                     $userdata = run_query($id_connect, $query);
 
 # Ставим куки
@@ -67,13 +67,14 @@ print'<div class="authorisation">';
                 } else {
                     print $langArray['WRONG_PASSWORD'];
                     include './login.php';
-                    print '</div>';
+                   //print '</div>';
                 }
             }
         }
     } else
-        include './login.php';
-    print '</div>';
+       // print $langArray['WRONG_PASSWORD'];
+                    include './login.php';
+                   print '</div>';
 }
 else {
     print $langArray['HELLO'] . $_SESSION['username'] . '!';

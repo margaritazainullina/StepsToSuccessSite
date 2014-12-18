@@ -7,25 +7,23 @@ if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || 
 ?>
 <html>
     <head>
-        <title> Управление контентом </title>
+        <title>Управление контентом</title>
         <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="style/menu.css">
         <meta charset="UTF-8">
     </head>
     <body> 
         <div class="wrapper">
             <img src="style/header.png" style="width: 100%;">
-
             <?php
             include './template/menu.php';
+            print '<span class="line"></span>';
+            include './check.php';
             ?> 
 
-            <span class="line"></span>
+            <span class="line"></span>   
             <?php
-            include './check.php';
-
-            $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
-
-            //publishing
+//publishing
             if (isset($_POST['publication_type'])) {
 
                 switch ($_POST['publication_type']) {
@@ -37,23 +35,27 @@ if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || 
                         break;
                 }
             }
-            ?>
+            ?>			
             <div class="content"> 
-                <?php print $langArray['ADD'] ?>
-                <form method="post" action="admin.php">
-                    <select name="publication_type"> 
-                        <option value="" selected="selected"></option>
-                        <option value="news"><?php print $langArray['NEWS'] ?></option>
-                        <option value="photo"><?php print $langArray['PHOTO'] ?></option>
-                    </select>
-                    <INPUT TYPE="submit" name="submit" value="OK"/>
-                </form>
+                <div class="registration"> 
+                    <?php print $langArray['ADD'] ?>
+                    <form method="post" action="admin.php">
+                        <select name="publication_type"> 
+                            <option value="" selected="selected"></option>
+                            <option value="news"><?php print $langArray['NEWS'] ?></option>
+                            <option value="photo"><?php print $langArray['PHOTO'] ?></option>
+                        </select>
+                        <INPUT TYPE="submit" name="submit" value="OK"/>
+                    </form>
+                </div> 
             </div>
-        </div>  
-        <?php
-        include './template/footer.php';
-        ?>   
-
-
+        </div>
+        <footer>
+            <img src="style/logo_2.png" class="logo_2"><br>
+            <img src="style/logo_1.jpg"  class="logo_1"><br>
+            <?php
+            include './template/footer.php';
+            ?>
+        </footer>
     </body>
 </html>

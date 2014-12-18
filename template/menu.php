@@ -38,7 +38,7 @@ if (isset($_POST['lang_fr'])) {
             <div class="container">
                 <ul class="menu">
                     <li class = "lime"><a href="./index.php"><?php print $langArray['MENU_NEWS'] ?></a></li>
-                    <li class = "lime">  <a href="./about.php"><?php print $langArray['MENU_ABOUT'] ?></a></li>
+                    <li class = "lime"><a href="./about.php"><?php print $langArray['MENU_ABOUT'] ?></a></li>
                     <li class = "lime"><a class="top-heading" href="./gallery.php"><?php print $langArray['MENU_GALLERY'] ?></a></li>
                     <li class = "lime"><a class="top-heading" href="./video.php"><?php print $langArray['MENU_VIDEO'] ?></a></li>
                     <li class = "lime"><a class="top-heading" href="./contacts.php"><?php print $langArray['MENU_CONTACTS'] ?></a></li>

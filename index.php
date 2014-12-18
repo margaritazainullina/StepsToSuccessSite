@@ -17,10 +17,16 @@
             <span class="line"></span>    
             <div class="content"> 
                 <?php
+                if ($lang == 'rus') {
+                    print '<img src="style/main_r.jpg" alt="Main logo"/>';
+                } else {
+                    print '<img src="style/main_1.jpg" alt="Main logo"/>';
+                }
+                
                 try {
 
                     // Find out how many items are in the table
-                    $total = $id_connect->query(' SELECT COUNT(*) FROM news ')->fetchColumn();
+                    $total = $id_connect->query(' SELECT COUNT(*) FROM news where name="" ')->fetchColumn();
 
                     // How many items to list per page
                     $limit = 4;
@@ -51,7 +57,7 @@
                     // The "forward" link
                     $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="' . $langArray['MENU_NEXT'] . '">&rsaquo;</a> <a href="?page=' . $pages . '" title="' . $langArray['MENU_LAST'] . '">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
                     // Prepare the paged query
-                    $stmt = $id_connect->prepare('SELECT * FROM news ORDER BY id desc LIMIT :limit OFFSET :offset');
+                    $stmt = $id_connect->prepare('SELECT * FROM news where name="" ORDER BY id desc LIMIT :limit OFFSET :offset');
 
                     // Bind the query params
                     $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
@@ -83,21 +89,18 @@
                         //« ‹ Page 1 of 4 pages, displaying 1-7 of 24 results › »
                         echo '<div id="paging"><p>', $prevlink, $langArray['MENU_1'], $page, $langArray['MENU_2'], $pages, $nextlink, ' </p></div>';
                         echo '<span class="line"></span>';
-                    } else {
-                        echo '<p>No results could be displayed.</p>';
-                    }
+                    } 
                 } catch (Exception $e) {
                     echo '<p>', $e->getMessage(), '</p>';
                 }
                 ?> 
-            </div>   
-        </div>
+            </div></div>
         <footer>
-            <img src="style/logo_2.png" style="
+            <img src = "style/logo_2.png" style = "
                  width: 150px;  
                  float: left;
                  margin: 0 50px; "><br>
-            <img src="style/logo_1.jpg" style="
+            <img src = "style/logo_1.jpg" style = "
                  width: 150px;  
                  float: right;
                  margin:0 50px;"><br>
