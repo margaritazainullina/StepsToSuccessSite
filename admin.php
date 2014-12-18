@@ -25,7 +25,7 @@ if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || 
             $id_connect = new PDO("mysql: host=$host; dbname=$dbname", $login, $password);
 
             //publishing
-            if (isset($_POST['submit'])) {
+            if (isset($_POST['publication_type'])) {
 
                 switch ($_POST['publication_type']) {
                     case "news":
@@ -38,14 +38,14 @@ if (!(isset($_SERVER['HTTP_REFERER']) || ( $_SESSION['authorised'] == true ) || 
             }
             ?>
             <div class="content"> 
-                Добавить
+                <?php print $langArray['ADD'] ?>
                 <form method="post" action="admin.php">
                     <select name="publication_type"> 
                         <option value="" selected="selected"></option>
-                        <option value="news">Новость</option>
-                        <option value="photo">Фото в галерею</option>
+                        <option value="news"><?php print $langArray['NEWS'] ?></option>
+                        <option value="photo"><?php print $langArray['PHOTO'] ?></option>
                     </select>
-                    <INPUT TYPE="submit" name="submit" />
+                    <INPUT TYPE="submit" name="submit" value="OK"/>
                 </form>
             </div>
         </div>  

@@ -1,7 +1,8 @@
 <?php
 
 # Соединямся с БД
-include 'connection.php';
+
+require_once 'connection.php';
 $id_connect = new PDO("mysql: host=$host; dbname=$dbname; charset=utf8", $login, $password);
 # Функция для генерации случайной строки
 
@@ -24,6 +25,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Exit") {
     session_write_close();
 }
 
+print'<div class="authorisation">';
 if (!$_SESSION['authorised']) {
     if (isset($_POST['submit']) && $_POST['submit'] == "Login") {
         $query = "SELECT user_id, user_password, user_ip, role_id FROM users WHERE user_login='" . $_POST['login'] . "' LIMIT 1";
@@ -33,7 +35,7 @@ if (!$_SESSION['authorised']) {
             include './login.php';
         else
         if ($userdata == null) {
-            print "Пользователя с таким логином не существует";
+            print $langArray['NO_USER'];
             include './login.php';
         } else {
             foreach ($userdata as $l) {
@@ -67,24 +69,25 @@ if (!$_SESSION['authorised']) {
                     $_SESSION['role'] = $user_role;
                     $_SESSION['authorised'] = true;
 
-                    print'<div class="authorisation">';
-                    print "Hello, " . $_POST['login'] . '!';
+                    print $langArray['HELLO'] . $_SESSION['username'] . '!';
                     if ($user_role == 1)
                         print '<a href="admin.php">Admin</a>';
-                    print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form></div>';
+                    print '<form method="POST"> <input name="submit" type="submit" value="' . $langArray['EXIT'] . '"> </form></div>';
                 } else {
-                    print "Вы ввели неправильный логин/пароль";
+                    print $langArray['WRONG_PASSWORD'];
                     include './login.php';
+                    print '</div>';
                 }
             }
         }
     } else
         include './login.php';
+    print '</div>';
 }
 else {
-    print "Hello, " . $_SESSION['username'] . '!';
+    print $langArray['HELLO'] . $_SESSION['username'] . '!';
     if ($_SESSION['role'] == 1)
-        print '<a href="admin.php">Admin</a>';
-    print '<form method="POST"> <input name="submit" type="submit" value="Exit"> </form></div>';
+        print '<a href="admin.php">' . $langArray['ADMIN_PAGE'] . '</a>';
+    print '<form method="POST"> <input name="submit" type="submit" value="' . $langArray['EXIT'] . '"> </form></div>';
 }
 ?>

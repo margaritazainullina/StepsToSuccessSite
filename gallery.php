@@ -5,51 +5,40 @@
     <body> 
         <div class="wrapper">
             <img src="style/header.png" style="width: 100%;">
-
             <?php
+            include './Language.php';
+            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); //Detecting Default Browser language
+            $language = New Language($lang);
+            $langArray = array();
+            $langArray = $language->userLanguage();
+
             include './template/menu.php';
+            include './check.php';
             ?> 
 
-                <span class="line"></span>
-                <?php
-                include './check.php';
-                ?>             
-
+            <span class="line"></span>    
             <div class="content"> 
                 <span class="line"></span>
-                <article>
-                    <h2>О нашей комманде</h2>
-                    <p>Наша скромная комманда по созданию игры насчитывает 3 программистов, и 2 дизайнеров.<br>
-                        Руководитель проекта: <a href="https://vk.com/tfilonenko">Филоненко Татьяна</a><br>
-                        Программисты:  <a href="https://vk.com/id137099226">Зайнуллина Маргарита</a>,<a href="https://vk.com/agumon">Кононенко Данил</a>.<br>
-                        С дезигнерами вообще хз что.<br>
-                        Будем рады любым отзывам и предложениям =)<br>
-                        А сайт сделали студенты 1 курса французской программы 
-                        <a href="https://vk.com/id137099226">Зайнуллина Маргарита</a> и 
-                        <a href="https://vk.com/id82487045"> Лена Овсийчук </a>.
-                    </p>
-                    <div class="datetime">00:18 15.12.2014</div>
-                </article>
+                <?php
+                $query = 'SELECT * FROM gallery';
+                $userdata = run_query($id_connect, $query);
 
-                <article>
-                    <h2>О нашей комманде</h2>
-                    <p>Наша скромная комманда по созданию игры насчитывает 3 программистов, и 2 дизайнеров.<br>
-                        Руководитель проекта: <a class="contact" href="https://vk.com/tfilonenko">Филоненко Татьяна</a><br>
-                        Программисты:  <a class="contact" href="https://vk.com/id137099226">Зайнуллина Маргарита</a>,<a href="https://vk.com/agumon">Кононенко Данил</a>.<br>
-                        С дезигнерами вообще хз что.<br>
-                        Будем рады любым отзывам и предложениям =)<br>
-                        А сайт сделали студенты 1 курса французской программы 
-                        <a class="contact" href="https://vk.com/id137099226">Зайнуллина Маргарита</a> и 
-                        <a class="contact" href="https://vk.com/id82487045"> Лена Овсийчук </a>.
-                    </p>
-                    <div class="datetime">00:18 15.12.2014</div>
-                </article>
+                if (!isset($_COOKIE['lang'])) {
+                    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+                } else
+                    $lang = $_COOKIE['lang'];
+                // Display the results
+                foreach ($userdata as $row) {
+                    print '<article>
+                    <img src="' . $row['ref'] . '"/>
+                    <p>' . $row['desc_' . $lang] . '</p>
+                </article>';
+                }
+                ?> 
             </div>
-             </div>  
-        <?php
-        include './template/footer.php';
-        ?>   
-        
-
+            <?php
+            include './template/footer.php';
+            ?>   
+        </div> 
     </body>
 </html>

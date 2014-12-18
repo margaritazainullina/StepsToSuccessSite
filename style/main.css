@@ -27,9 +27,9 @@ html{
 footer {
     background: url(../style/footer.png)no-repeat;
     -moz-background-size: 100%; /* Firefox 3.6+ */
-    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ ﾐｸ Chrome 4.0+ */
     -o-background-size: 100%; /* Opera 9.6+ */
-    background-size: 100%; /* Современные браузеры */
+    background-size: 100%; /* ﾐ｡ﾐｾﾐｲﾑﾐｵﾐｼﾐｵﾐｽﾐｽﾑ巾ｵ ﾐｱﾑﾐｰﾑσｷﾐｵﾑﾑ */
     margin: 0 auto;
     width: 75%; 
     position: relative;
@@ -45,20 +45,21 @@ footer {
 }
 
 .loginform{
-    float: right;
+    //float: right;
     width: 100%;
-    text-align: right;
+    //text-align: right;
     padding:0.5% 1%;
 }
 .loginform table{
     float: right;
 }
 .authorisation{
-    text-align: right;
+   // text-align: right;
     //height: 33%;
 }
 
 article{
+    height: 100%;
     border-radius: 25 0;
     padding: 0 5%;
     border: 2px #669900 solid;
@@ -67,8 +68,8 @@ article{
 }
 article h2{
     color: #669900;
-    padding: 2%4%;
-    margin: 5;
+    /* padding: 2%4%; */
+    /* margin: 5; */
 }
 article .datetime{
     color: grey;
@@ -79,8 +80,8 @@ article .datetime{
 article img{
     max-width: 400px;
     max-height: 400px;
-    float: right; /* Обтекание картинки по левому краю */
-    padding-left: 10px; /* Отступ слева */
+    float: right; /* ﾐ榧ｱﾑひｵﾐｺﾐｰﾐｽﾐｸﾐｵ ﾐｺﾐｰﾑﾑひｸﾐｽﾐｺﾐｸ ﾐｿﾐｾ ﾐｻﾐｵﾐｲﾐｾﾐｼﾑ ﾐｺﾑﾐｰﾑ */
+    padding-left: 10px; /* ﾐ樮び�びσｿ ﾑ�ｻﾐｵﾐｲﾐｰ */
     padding-bottom: 10px;
 }
 .line{ 
@@ -93,7 +94,7 @@ article img{
 }
 #paging{
     text-align: center;
-color:  #4B7002;
+    color:  #4B7002;
 }
 a{
     color:  #4B7002;
@@ -108,4 +109,26 @@ input:focus{
     outline-color: green;
     border: 1px solid rgba(3, 195, 3, 0.5);
     //box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.28)
+}
+.lang_rus{
+    border: 0px;
+    height: 30px;
+    margin: 5px;
+    width: 45px;
+    float: right;
+    background: #ccc url('../style/rus.jpg') no-repeat top left;
+}
+.lang_fr{
+    border: 0px;
+    height: 30px;
+    margin: 5px;
+    width: 45px;
+    float: right;
+    background: #ccc url('../style/fra.jpg') no-repeat top left;
+}
+.menu1{float: left;}
+nav{
+    height: 45px;
+    padding: 0 10% 0 15%;
+    background: #F6F6F9;
 }
