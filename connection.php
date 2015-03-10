@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$login = "root";
-$password = "";
+$login = "adminpqT6rmn";//"root";
+$password = "rcWcsRLRgYiz";//"";
 $dbname = "db_sts_site";
 
 function run_query($connection, $command) {
