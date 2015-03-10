@@ -2,7 +2,7 @@
 $host = "localhost";
 $login = "adminpqT6rmn";//"root";
 $password = "rcWcsRLRgYiz";//"";
-$dbname = "php";//"db_php_site";
+$dbname = "db_sts_site";
 
 function run_query($connection, $command) {
     try {
